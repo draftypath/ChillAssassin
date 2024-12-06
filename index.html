@@ -78,6 +78,28 @@
       color: white;
       box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
     }
+
+    .mute-button {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      background-color: #ff9900;
+      color: black;
+      padding: 10px 20px;
+      font-size: 1rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      z-index: 10;
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+      transition: all 0.3s ease;
+    }
+
+    .mute-button:hover {
+      background-color: #cc7a00;
+      color: white;
+    }
   </style>
 </head>
 <body>
@@ -87,13 +109,16 @@
     Your browser does not support the video tag.
   </video>
 
+  <!-- Unmute Button -->
+  <button class="mute-button" id="muteButton">Unmute</button>
+
   <!-- Main Header -->
   <h1>Just a Chill Assassin</h1>
   
   <!-- Buttons -->
   <div class="button-container">
     <a class="buy-button" href="https://pump.fun/coin/D8Wuu3ntPzwztdVMN12znSm36rgM7hvpfrrUp8q4pump" target="_blank">Buy Now</a>
-    <a class="x-button" href="https://x.com/chillassassin" target="_blank">X</a>
+    <a class="x-button" href="https://x.com/chillassassin" target="_blank">Follow Us on X</a>
   </div>
 
   <!-- Footer -->
@@ -103,11 +128,30 @@
   
   <!-- Character Image -->
   <img src="image_no_bg.png" alt="Character" class="character">
+
+  <!-- Audio Player -->
+  <audio id="backgroundAudio" loop>
+    <source src="Chill_Piano.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <script>
+    // JavaScript for Unmute/Mute Button
+    const audio = document.getElementById('backgroundAudio');
+    const muteButton = document.getElementById('muteButton');
+
+    // Initially, the audio is muted and doesn't play
+    muteButton.addEventListener('click', () => {
+      if (audio.paused || audio.muted) {
+        audio.muted = false;
+        audio.play(); // Start the audio when unmuted
+        muteButton.textContent = 'Mute';
+      } else {
+        audio.muted = true;
+        muteButton.textContent = 'Unmute';
+      }
+    });
+  </script>
 </body>
 </html>
 
-  
-  <!-- Character Image -->
-  <img src="image_no_bg.png" alt="Character" class="character">
-</body>
-</html>
