@@ -50,6 +50,7 @@
       margin-top: 40px;
       text-shadow: 4px 4px 7px rgba(0, 0, 0, 0.7);
     }
+
     h2 {
       font-size: 3.3rem;
       font-weight: bold;
@@ -72,14 +73,14 @@
     }
 
     .button-container {
-      margin-top: 20px; /* Adjust spacing between header and buttons */
+      margin-top: 20px;
       margin-bottom: 83px;
-      text-align: center; /* Ensure the buttons are centered */
+      text-align: center;
     }
 
-    .buy-button, .x-button {
-      display: inline-block; /* Prevent the buttons from stretching full width */
-      margin: 10px auto; /* Add spacing between buttons */
+    .buy-button, .x-button, .disabled-button {
+      display: inline-block;
+      margin: 10px auto;
       padding: 15px 30px;
       background-color: #ff9900;
       color: black;
@@ -89,14 +90,18 @@
       border-radius: 5px;
       box-shadow: 4px 4px 7px rgba(0, 0, 0, 0.5);
       transition: all 0.3s ease;
-      width: 200px; /* Set a fixed button width */
-      text-align: center; /* Center-align button text */
+      width: 200px;
+      text-align: center;
     }
 
     .buy-button:hover, .x-button:hover {
       background-color: #cc7a00;
       color: white;
       box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
+    }
+
+    .disabled-button {
+      cursor: not-allowed;
     }
 
     .mute-button {
@@ -121,20 +126,57 @@
       color: white;
     }
 
-    .disabled-button {
-      display: inline-block; /* Same style as buy-button */
-      margin: 10px auto;
-      padding: 15px 30px;
-      background-color: #ff9900; /* Same color */
-      color: black;
-      font-size: 1.2rem;
-      text-decoration: none;
-      font-weight: bold;
-      border-radius: 5px;
-      box-shadow: 4px 4px 7px rgba(0, 0, 0, 0.5);
-      width: 200px;
-      text-align: center;
-      cursor: not-allowed; /* Indicates the button is inactive */
+    /* Responsive Design */
+    @media screen and (max-width: 768px) {
+      h1 {
+        font-size: 4rem;
+      }
+
+      h2 {
+        font-size: 2rem;
+        margin-top: -20px;
+      }
+
+      .character {
+        width: 300px; /* Scale down character image */
+        bottom: -100px;
+      }
+
+      .buy-button, .x-button, .disabled-button {
+        width: 150px; /* Smaller button width */
+        font-size: 1rem;
+        padding: 10px 20px;
+      }
+
+      footer {
+        font-size: 1rem; /* Smaller footer text */
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      h1 {
+        font-size: 3rem;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+        margin-top: -15px;
+      }
+
+      .character {
+        width: 200px;
+        bottom: -50px;
+      }
+
+      .buy-button, .x-button, .disabled-button {
+        width: 100px;
+        font-size: 0.9rem;
+        padding: 8px 15px;
+      }
+
+      footer {
+        font-size: 0.9rem;
+      }
     }
   </style>
 </head>
@@ -154,21 +196,21 @@
   <!-- Main Header -->
   <h1>Just a Chill Assassin</h1>
   <h2></h2>
-  
-<!-- Buttons -->
-<div class="button-container">
-  <a class="buy-button" href="https://pump.fun/coin/JCXUqqkurPmLFxSLQJ95o5K7LcVZNTEuk6CChbVCpump" target="_blank">Buy Now</a>
-  <a class="x-button" href="https://x.com/chillassassin" target="_blank">Follow on X</a>
-  <div style="margin-top: 20px;"> <!-- Adds spacing for the "Pixel Game Coming Soon" button -->
-    <a class="disabled-button" href="#" onclick="return false;">Pixel Game Coming Soon</a>
+
+  <!-- Buttons -->
+  <div class="button-container">
+    <a class="buy-button" href="https://pump.fun/coin/JCXUqqkurPmLFxSLQJ95o5K7LcVZNTEuk6CChbVCpump" target="_blank">Buy Now</a>
+    <a class="x-button" href="https://x.com/chillassassin" target="_blank">Follow on X</a>
+    <div style="margin-top: 20px;">
+      <a class="disabled-button" href="#" onclick="return false;">Pixel Game Coming Soon</a>
+    </div>
   </div>
-</div>
 
   <!-- Footer -->
   <footer>
     Coin Address: <strong>D8Wuu3ntPzwztdVMN12znSm36rgM7hvpfrrUp8q4pump</strong>
   </footer>
-  
+
   <!-- Character Image -->
   <img src="image_no_bg.png" alt="Character" class="character">
 
@@ -183,11 +225,10 @@
     const audio = document.getElementById('backgroundAudio');
     const muteButton = document.getElementById('muteButton');
 
-    // Initially, the audio is muted and doesn't play
     muteButton.addEventListener('click', () => {
       if (audio.paused || audio.muted) {
         audio.muted = false;
-        audio.play(); // Start the audio when unmuted
+        audio.play();
         muteButton.textContent = 'Mute';
       } else {
         audio.muted = true;
@@ -197,6 +238,7 @@
   </script>
 </body>
 </html>
+
 
 
 
