@@ -120,6 +120,22 @@
       background-color: #cc7a00;
       color: white;
     }
+
+    .disabled-button {
+      display: inline-block; /* Same style as buy-button */
+      margin: 10px auto;
+      padding: 15px 30px;
+      background-color: #ff9900; /* Same color */
+      color: black;
+      font-size: 1.2rem;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 5px;
+      box-shadow: 4px 4px 7px rgba(0, 0, 0, 0.5);
+      width: 200px;
+      text-align: center;
+      cursor: not-allowed; /* Indicates the button is inactive */
+    }
   </style>
 </head>
 <body>
@@ -139,15 +155,18 @@
   <h1>Just a Chill Assassin</h1>
   <h2></h2>
   
-  <!-- Buttons -->
-  <div class="button-container">
-    <a class="buy-button" href="https://pump.fun/coin/JCXUqqkurPmLFxSLQJ95o5K7LcVZNTEuk6CChbVCpump" target="_blank">Buy Now</a>
-    <a class="x-button" href="https://x.com/chillassassin" target="_blank">Follow on X</a>
+<!-- Buttons -->
+<div class="button-container">
+  <a class="buy-button" href="https://pump.fun/coin/JCXUqqkurPmLFxSLQJ95o5K7LcVZNTEuk6CChbVCpump" target="_blank">Buy Now</a>
+  <a class="x-button" href="https://x.com/chillassassin" target="_blank">Follow on X</a>
+  <div style="margin-top: 20px;"> <!-- Adds spacing for the "Pixel Game Coming Soon" button -->
+    <a class="disabled-button" href="#" onclick="return false;">Pixel Game Coming Soon</a>
   </div>
+</div>
 
   <!-- Footer -->
   <footer>
-    Coin Address: <strong>JCXUqqkurPmLFxSLQJ95o5K7LcVZNTEuk6CChbVCpump</strong>
+    Coin Address: <strong>D8Wuu3ntPzwztdVMN12znSm36rgM7hvpfrrUp8q4pump</strong>
   </footer>
   
   <!-- Character Image -->
