@@ -160,7 +160,6 @@
 
   <button class="mute-button" id="muteButton">Unmute</button>
   
-  <!-- Updated Headers -->
   <h1>Luigi</h1>
   <h2>The Chill Assassin</h2>
 
@@ -196,14 +195,23 @@
     const audio = document.getElementById('backgroundAudio');
     const muteButton = document.getElementById('muteButton');
 
+    // Start with the audio muted
+    audio.muted = true;
+
     muteButton.addEventListener('click', () => {
       if (audio.muted) {
-        audio.muted = false;
-        audio.play();
+        audio.muted = false; // Unmute the audio
+        audio.play().catch(error => console.error('Playback prevented:', error)); // Handle autoplay restrictions
         muteButton.textContent = 'Mute';
       } else {
-        audio.muted = true;
+        audio.muted = true; // Mute the audio
         audio.pause();
+        muteButton.textContent = 'Unmute';
+      }
+    });
+  </script>
+</body>
+</html>
   
 
 
