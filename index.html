@@ -123,6 +123,14 @@
       z-index: 3; /* Ensure character is above video but below buttons */
     }
 
+    .killer-character {
+      position: fixed;
+      bottom: -55px;
+      left: -100px; /* Mirrored placement */
+      width: 530px; /* Match the size of chilldog.png */
+      z-index: 3; /* Same layer as chilldog */
+    }
+
     footer {
       background: rgba(0, 0, 0, 0.5);
       padding: 10px;
@@ -148,13 +156,11 @@
   <h1>Just a Chill Assassin</h1>
 
   <div class="button-container">
-    <!-- Buy Now Button -->
     <a class="buy-button" href="https://pump.fun/coin/JCXUqqkurPmLFxSLQJ95o5K7LcVZNTEuk6CChbVCpump" 
        target="_blank" 
        rel="noopener noreferrer">
       Buy Now
     </a>
-    <!-- Follow on X Button -->
     <a class="x-button" href="https://x.com/chillassassin" 
        target="_blank" 
        rel="noopener noreferrer">
@@ -170,6 +176,7 @@
   </footer>
 
   <img src="chilldog.png" alt="Character" class="character">
+  <img src="killer.png" alt="Killer Character" class="killer-character">
 
   <audio id="backgroundAudio" loop muted>
     <source src="Chill_Piano.mp3" type="audio/mpeg">
@@ -177,7 +184,6 @@
   </audio>
 
   <script>
-    // JavaScript for Mute/Unmute Button
     const audio = document.getElementById('backgroundAudio');
     const muteButton = document.getElementById('muteButton');
 
@@ -195,6 +201,7 @@
   </script>
 </body>
 </html>
+
 
 
 
